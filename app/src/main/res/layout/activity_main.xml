@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textIsSelectable="true"
+            android:layout_marginBottom="16dp" />
+
+        <!-- LSPosed 作用域提醒：橙色，避免勾错成"系统框架" -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/warning_scope_line1"
+            android:textColor="#FF8C00"
+            android:textSize="14sp"
+            android:textIsSelectable="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/warning_scope_line2"
+            android:textColor="#D32F2F"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textIsSelectable="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/desc_no_restart"
+            android:textColor="#666666"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/desc_safety"
+            android:textColor="#666666"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:layout_marginBottom="24dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginBottom="24dp" />
+
+        <!--
+            使用方法 + 换算对照表。
+            表格右列（更改显示后）会在 App 打开时按当前已保存的关机点计算，
+            点"保存"成功后按刚保存的新数值重新计算，由 MainActivity 负责刷新；
+            左列（系统原始电量）是固定的 100/90/…/0 参照值，不需要跟着变。
+        -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/usage_title"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textIsSelectable="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/usage_desc"
+            android:textColor="#666666"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1"
+            android:layout_marginBottom="24dp">
+
+            <TableRow android:background="#EEEEEE">
+                <TextView
+                    android:text="@string/table_header_original"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:textIsSelectable="true" />
+                <TextView
+                    android:text="@string/table_header_display"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:textIsSelectable="true" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="100%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_100" android:text="100%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+            <TableRow android:background="#F7F7F7">
+                <TextView android:text="90%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_90" android:text="88%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="80%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_80" android:text="75%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+            <TableRow android:background="#F7F7F7">
+                <TextView android:text="70%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_70" android:text="63%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="60%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_60" android:text="50%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+            <TableRow android:background="#F7F7F7">
+                <TextView android:text="50%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_50" android:text="38%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="40%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_40" android:text="25%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+            <TableRow android:background="#F7F7F7">
+                <TextView android:text="30%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_30" android:text="13%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="20%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_20" android:text="0%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+            <TableRow android:background="#F7F7F7">
+                <TextView android:text="10%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_10" android:text="0%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="0%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+                <TextView android:id="@+id/result_0" android:text="0%" android:gravity="center" android:textSize="13sp" android:padding="8dp" android:textIsSelectable="true" />
+            </TableRow>
+        </TableLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 关机点输入框 + 保存按钮：同一行，填完立刻保存，保存成功后上面的表格会跟着刷新 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_shutdown_point"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textIsSelectable="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/edit_shutdown_point"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLength="2"
+                android:hint="@string/hint_shutdown_point" />
+
+            <Button
+                android:id="@+id/button_save_shutdown_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/button_save" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/desc_shutdown_point"
+            android:textColor="#888888"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="24dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 状态栏电量显示修改：开关拨动立即生效，不需要额外保存 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/label_display_enabled"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textIsSelectable="true" />
+
+            <Switch
+                android:id="@+id/switch_display_enabled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/desc_display_enabled"
+            android:textColor="#888888"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="24dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginBottom="24dp" />
+
+        <!--
+            低电量提醒：开关拨动立即生效；必须先打开"状态栏电量显示修改"才能开启，
+            否则灰掉（禁用+强制关闭），由 MainActivity 联动控制。
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/label_reminder_enabled"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textIsSelectable="true" />
+
+            <Switch
+                android:id="@+id/switch_reminder_enabled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/desc_reminder_enabled"
+            android:textColor="#888888"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:layout_marginTop="4dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 底部链接：点击直接跳转浏览器打开对应 GitHub 页面 -->
+        <TextView
+            android:id="@+id/link_project_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/link_project_home"
+            android:textColor="#1565C0"
+            android:textSize="13sp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/link_project_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/link_project_url"
+            android:textColor="#1565C0"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/link_author_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/link_author_home"
+            android:textColor="#1565C0"
+            android:textSize="13sp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/link_author_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/link_author_url"
+            android:textColor="#1565C0"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+</ScrollView>

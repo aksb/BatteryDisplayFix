@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-sdk
+        android:minSdkVersion="27"
+        android:targetSdkVersion="33" />
+
+    <application
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:icon="@android:drawable/ic_lock_idle_charging"
+        android:theme="@android:style/Theme.DeviceDefault">
+
+        <!-- 声明为 Xposed/LSPosed 模块，LSPosed Manager 才能识别并在作用域列表里显示 -->
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="82" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="按可配置的关机点重算状态栏/锁屏电量百分比，并支持低电量提醒(20/10/5/1%)" />
+
+        <!-- 设置界面：填关机点 x、显示开关、低电量提醒开关 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+            跨进程配置提供者：本 App 进程写入，SystemUI 进程里的 Hook 代码读取。
+            这是个人单机使用的本地工具，exported=true 且不设权限校验是为了让
+            content query / ContentResolver 跨进程都能直接访问，不需要额外声明权限。
+        -->
+        <provider
+            android:name=".ConfigProvider"
+            android:authorities="com.localmod.batterydisplay.config"
+            android:exported="true" />
+
+    </application>
+
+</manifest>

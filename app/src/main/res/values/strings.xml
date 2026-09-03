@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">电量显示重算</string>
+
+    <string name="warning_scope_line1">LSPosed 作用域需要勾选「系统界面（com.android.systemui）」，勾选后重启手机生效。</string>
+    <string name="warning_scope_line2">注意：是「系统界面」，不是「系统框架（system）」。</string>
+
+    <string name="desc_no_restart">修改配置后无需重启，下次电量刷新时自动生效（如果想立刻看到效果，锁屏再解锁一下，或下拉一次通知栏）。</string>
+    <string name="desc_safety">本软件仅会更改状态栏右上角电量的显示数值，不会对系统电量本身造成任何影响！也不会让电量变多/变少！</string>
+
+    <string name="usage_title">使用方法</string>
+    <string name="usage_desc">假设电池用到 20% 就会自动关机（电量 0%），那么下面输入框里应填入「20」，点击保存，看表格里显示的对应数值是否正确（四舍五入取整），如果正确再打开「状态栏电量显示修改」开关。</string>
+
+    <string name="table_header_original">系统原始电量</string>
+    <string name="table_header_display">更改显示后</string>
+
+    <string name="label_shutdown_point">实际电量关机点</string>
+    <string name="hint_shutdown_point">例如 20</string>
+    <string name="desc_shutdown_point">填手机实际电量的关机点（%），下面两个开关都基于这个换算结果。</string>
+
+    <string name="label_display_enabled">状态栏电量显示修改</string>
+    <string name="desc_display_enabled">开启后，状态栏/锁屏显示的电量文字会按上面的关机点重新换算；关闭则显示系统原始电量文字，同时会强制关闭下面的「低电量提醒」。</string>
+
+    <string name="label_reminder_enabled">低电量提醒</string>
+    <string name="desc_reminder_enabled">开启后，换算后的电量低于 20%、10%、5%、1% 时会各提醒一次；充电中不提醒，插上电后自动取消提醒。需要先打开上面的「状态栏电量显示修改」才能开启。</string>
+
+    <string name="button_save">保存</string>
+    <string name="toast_saved">已保存</string>
+
+    <string name="link_project_home">欢迎访问项目主页</string>
+    <string name="link_project_url">https://github.com/aksb/BatteryDisplayFix</string>
+    <string name="link_author_home">欢迎访问作者主页，里面有更多实用小工具</string>
+    <string name="link_author_url">https://github.com/aksb</string>
+    <string name="toast_open_link_failed">无法打开浏览器</string>
+</resources>
