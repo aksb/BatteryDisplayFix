@@ -27,7 +27,7 @@
     <string name="button_save">保存</string>
     <string name="toast_saved">已保存</string>
 
-    <string name="link_project_home">欢迎访问项目主页</string>
+    <string name="link_project_home">欢迎访问项目主页(点击跳转浏览器)</string>
     <string name="link_project_url">https://github.com/aksb/BatteryDisplayFix</string>
     <string name="link_author_home">欢迎访问作者主页，里面有更多实用小工具</string>
     <string name="link_author_url">https://github.com/aksb</string>
