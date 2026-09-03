@@ -29,7 +29,7 @@
 
     <string name="link_project_home">欢迎访问项目主页(点击跳转浏览器)</string>
     <string name="link_project_url">https://github.com/aksb/BatteryDisplayFix</string>
-    <string name="link_author_home">欢迎访问作者主页，里面有更多实用小工具</string>
+    <string name="link_author_home">欢迎访问作者主页，下载多实用小工具</string>
     <string name="link_author_url">https://github.com/aksb</string>
     <string name="toast_open_link_failed">无法打开浏览器</string>
 </resources>
